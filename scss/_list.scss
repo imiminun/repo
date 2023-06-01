@@ -10,8 +10,7 @@ $font-sizes: 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34; //쉼표 구
     }
 }
 
-// 정렬 
-
+// 정렬
 $align-directions: left, center, right;
 @each $direction in $align-directions {
     .text-align-#{$direction} {
