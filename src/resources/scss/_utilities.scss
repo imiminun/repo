@@ -1,0 +1,66 @@
+$utilities: (
+  "text-align": (
+    property : text-align, //css 속성
+    values: (
+        left: left,
+        center: center,
+        right: right
+    )
+  ),
+  
+  "position": (
+    property: position,
+    class: pos,
+    values: (relative relative, absolute absolute, fixed fixed, static static)
+  ),
+
+  "background-color" :(
+    property: background-color,
+    class: bg,
+    values: (
+      "mono-black" : #000,
+      "mono-gray-a" : #333,
+      "mono-gray-b" : #666,
+      "mono-gray-c" : #999,
+      "mono-light-gray-a" : #BEBEBE,
+      "mono-light-gray-b" : #CCCCCC,
+      "mono-light-gray-c" : #F7F7F7,
+      // RED
+      "red-900" : #C80014,
+      "red-800" : #D80020,
+      "red-700" : #E50029,
+      "red-600" : #F6002E,
+      "red-500" : #FF002E,
+      "red-400" : #FF334B,
+      "red-300" : #FF5C77,
+      "red-200" : #FF8F9E,
+      "red-100" : #FFC8D7,
+      "red-50" : #FFE9F0,
+      // MAGENTA
+      "magenta-900" : #8E0054,
+      "magenta-800" : #B4005B,
+      "magenta-700" : #CA005D,
+      "magenta-600" : #E10063,
+      "magenta-500" : #F30064,
+      "magenta-400" : #F30063,
+      "magenta-300" : #F84397,
+      "magenta-200" : #F881B6,
+      "magenta-100" : #FAB4D3,
+      "magenta-50" : #FEE2ED,
+      // INDIGO
+      "indigo-900" : #2800A4,
+      "indigo-800" : #3010BD,
+      "indigo-700" : #3621CB,
+      "indigo-600" : #3E2ED9,
+      "indigo-500" : #4339E3,
+      "indigo-400" : #5A59F4,
+      "indigo-300" : #7979F7,
+      "indigo-200" : #A3A0FA,
+      "indigo-100" : #C8C5FB,
+      "indigo-50" : #E9E9FE,
+      "indigo-10" : #ececf8,
+      // BLUE
+      // "-00" : #
+    )
+  ),
+);

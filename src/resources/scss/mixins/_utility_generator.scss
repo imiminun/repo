@@ -1,0 +1,25 @@
+@each $key, $value in $utilities {
+//  @debug map-get($value, values)
+// map-get(map, 속성);
+ $property: map-get($value, property); //text-align
+ $values: map-get($value, values);
+ $property-class: null;
+
+//  @debug map-has-key($value, class); // true, flase
+
+ @if(map-has-key($value, class)) {
+    //true
+    $property-class: map-get($value, class);
+ } @else {
+    //false
+    $property-class: $property;
+ }
+
+ @debug map-has-key($value, class), $property-class;
+
+ @each $prop, $value in $values {
+    .#{$property-class}-#{$prop} {
+        #{$property}: $value;
+    }
+  }
+}

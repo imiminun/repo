@@ -1,0 +1,20 @@
+// scss 파일에서 다른 scss 파일을 import 시킬때 _(underscore)쓰는 기법을 파샬(partial)이라고 함 --> _list.scss 
+// 폰트 사이즈
+// $font-sizes: 12 14 16 18 20; 공백 구분
+
+$font-sizes: 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34; //쉼표 구분
+@each $size in $font-sizes {
+    // 변수명에는 보간을 사용, 속성 값으로 사용 시에는 지양
+    .text-size-#{$size} {
+        font-size: $size * 1px;
+    }
+}
+
+// 정렬
+$align-directions: left, center, right;
+@each $direction in $align-directions {
+    .text-align-#{$direction} {
+        text-align: $direction;
+    }
+}
+
