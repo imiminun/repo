@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <title>기본정보 - hitai</title>
+    <link href="../resources/scss/ui.common.css" rel="stylesheet" />
+    <link href="../resources/scss/ui.publish.css" rel="stylesheet" />
+    <script type="text/javascript" src="../resources/js/lib/jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../resources/js/lib/jquery-ui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../resources/js/lib/ui.plugin.js"></script>
+    <script type="text/javascript" src="../resources/js/ui.publish.js"></script>
+    <script type="text/javascript" src="../resources/js/ui.common.js"></script>
+  </head>
+
+  <body>
+    <div id="wrapper" class="docs">
+      <header class="header">
+        <div>
+          <h1>
+            <strong><img src="../resources/images/com/img-logo.png" alt="Hitai" /></strong> PUBLISHING
+          </h1>
+          <ul class="gnb">
+            <li><a href="./index.html">LIST</a></li>
+            <li><a href="./guide.html">GUIDE</a></li>
+            <li><a href="./rule.html" aria-current="location">RULE</a></li>
+          </ul>
+        </div>
+      </header>
+      <main id="container">
+        <!-- # CONTENT # -->
+        <div class="content">
+          <!-- [기본정책] -->
+          <section class="section">
+            <h2 class="tit-guide1">기본정책<em class="sub">기준일 2023.00.00</em></h2>
+
+            <!-- // -->
+            <h3 class="tit-guide3">디바이스 및 OS기준</h3>
+            <div class="txt-guide1">
+              <ul>
+                <li>Android x.x.x(최신버전)</li>
+                <li>IOS xx 이상(최신버전)</li>
+              </ul>
+            </div>
+
+            <!-- // -->
+            <h3 class="tit-guide3">해상도기준</h3>
+            <div class="txt-guide1">
+              <ul>
+                <li>디자인 최적화 : 360 x 726 / 360 x 773</li>
+                <li>지원 : 가로 320 이상</li>
+              </ul>
+            </div>
+
+            <!-- // -->
+            <h3 class="tit-guide3">웹표준</h3>
+            <div class="txt-guide1">
+              <ul>
+                <li>HTML은 HTML5 DTD의 명세에 맞게 작성하며, <a href="http://www.w3.org/html/wg/drafts/html/master/" target="_blank" title="새창" class="link-guide1">w3c html5문법</a> 에 준하여 표준문법을 사용</li>
+              </ul>
+            </div>
+            <!-- // -->
+          </section>
+
+          <!-- [코드 작성 규칙] -->
+          <section class="section">
+            <h2 class="tit-guide1">기본구조</h2>
+            <fieldset class="guide">
+              <legend class="lagend">html[lang="ko"]</legend>
+              <!-- head -->
+              <fieldset class="guide">
+                <legend class="lagend">head</legend>
+                <div class="ex-section">
+                  <script type="text/plain" class="code-view language-html">
+                    <meta charset="utf-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+                    <meta name="format-detection" content="telephone=no, address=no, email=no">
+                    <title>페이지타이틀 - hitai</title>
+                    <link rel="stylesheet" href="/css/nbi/ui.common.css" />
+                    <script  type="text/javascript" src="../resources/js/lib/jquery/jquery-3.6.0.min.js"/>
+                    <script  type="text/javascript" src="../resources/js/lib/jquery/jquery-ui-1.13.1.js"/>
+                    <script  type="text/javascript" src="../resources/js/lib/ui.plugin.js"/>
+                    <script  type="text/javascript" src="../resources/js/ui.common.js"/>
+                    ...
+                  </script>
+                </div>
+              </fieldset>
+              <!-- body -->
+              <fieldset class="guide">
+                <legend class="lagend">body</legend>
+                <fieldset class="guide">
+                  <legend class="lagend">#wrapper</legend>
+                  <fieldset class="guide">
+                    <legend class="lagend">#header</legend>
+                  </fieldset>
+                  <fieldset class="guide">
+                    <legend class="lagend">#container</legend>
+                    <fieldset class="guide">
+                      <legend class="lagend">div.content 컨텐츠영역</legend>
+                    </fieldset>
+                  </fieldset>
+                  <fieldset class="guide">
+                    <legend class="lagend">#navBar 하단고정메뉴영역</legend>
+                  </fieldset>
+                  <fieldset class="guide">
+                    <legend class="lagend">#footer</legend>
+                  </fieldset>
+                </fieldset>
+              </fieldset>
+            </fieldset>
+          </section>
+
+          <!-- [네이밍규칙] -->
+          <section class="section">
+            <h2 class="tit-guide1">네이밍규칙</h2>
+
+            <!-- [1] -->
+            <h3 class="tit-guide3">아이디(ID)</h3>
+            <div class="txt-guide1">
+              <ul>
+                <li><strong>카멜 케이스</strong>기법을 사용한다.</li>
+                <li>지정된 레이아웃을 제외하고 UI스타일 지정을 위하여는 id를 사용하지 않는다.</li>
+                <li>앵커로서 사용되는 엘리먼트 또는 User Interface 동작을 위하여 DOM 선택자로서의 id 지정은 가능하다.</li>
+                <li>예약어가 있는 경우 예약어를 사용한다.</li>
+              </ul>
+            </div>
+
+            <!-- [2] -->
+            <h3 class="tit-guide3">클래스(CLASS)</h3>
+            <div class="txt-guide1">
+              <ul>
+                <li>네이밍은 <strong>하이픈(-)</strong> 사용을 기본으로 한다.</li>
+                <li>시작의 이름은 영문 소문자를 사용하며 두 번째 단어부터 하이픈으로 연결하며 대문자는 사용하지 않는다.</li>
+                <li>영문 소문자, 숫자, 하이픈만 사용할 수 있다.</li>
+                <li>BEM 방식을 사용한다.</li>
+                <li>Block Element Modifier 방식을 사용한다.</li>
+              </ul>
+            </div>
+
+            <div class="tbl-guide">
+              <table>
+                <caption>
+                  기본적 클래스 예약어
+                </caption>
+                <colgroup>
+                  <col style="width: 15rem" />
+                  <col />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">예약어</th>
+                    <th scope="col">설명</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>.modal-*</td>
+                    <td>레이어형태 팝업</td>
+                  </tr>
+                  <tr>
+                    <td>.heading .heading--*</td>
+                    <td>타이틀 요소 지정</td>
+                  </tr>
+                  <tr>
+                    <td>.btn-x</td>
+                    <td>버튼 요소 지정</td>
+                  </tr>
+                  <tr>
+                    <td>.hide</td>
+                    <td>숨김요소 : 시각적으로만 숨김처리되는 요소로, 스크린리더를 통해서는 정보제공되는 대상</td>
+                  </tr>
+                  <tr class="dev">
+                    <td>.none</td>
+                    <td>
+                      숨김요소 : 시각, 청각요소 모두 숨김처리대상. 주로 UI동작관련 하여 필요시 사용.<br />
+                      <em class="txt-c1">개발에서 display 조절필요시 inline style 이 아닌 클래스 추가삭제 컨트롤을 권함.</em>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- [3] -->
+            <h3 class="tit-guide3">기타 예약어 [data-*]</h3>
+            <div class="tbl-guide">
+              <table>
+                <caption>
+                  기타 예약어
+                </caption>
+                <colgroup>
+                  <col width="200" />
+                  <col width="200" />
+                  <col width="200" />
+                  <col />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col">예약어</th>
+                    <th scope="col">값</th>
+                    <th scope="col">Default</th>
+                    <th scope="col">설명</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>[data-]</td>
+                    <td>on/off</td>
+                    <td>on</td>
+                    <td>[data-="on"]</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- [SASS] -->
+          <section class="section">
+            <h3 class="tit-guide3">작업환경 설정</h3>
+            <div class="ex-section">
+              <script type="text/plain" class="code-view language-json"></script>
+            </div>
+          </section>
+          <!-- [//] -->
+
+          <!-- [JAVASCRIPT] -->
+          <section class="section">
+            <h3 class="tit-guide3">COMPILE</h3>
+            <div class="txt-guide1">
+              <p>nodejs 설치 <a href="https://nodejs.org" target="_blank">https://nodejs.org/ko/</a></p>
+            </div>
+
+            <h3 class="tit-guide3">CLI - 개발모드 시작</h3>
+            <div class="ex-section">
+              <pre class="code-view">
+							<code class="language-cmd">
+                cd hitai/
+                npm dev:om
+							</code>
+						</pre>
+            </div>
+
+            <h3 class="tit-guide3">CLI - 배포버전 빌드</h3>
+            <div class="ex-section">
+              <pre class="code-view">
+							<code class="language-cmd">
+              cd hitai/
+							npm build:om
+							</code>
+						</pre>
+            </div>
+
+            <h3 class="tit-guide3">빌드 설정</h3>
+            <div class="ex-section">gulpfile.babel.js 파일 참조</div>
+          </section>
+          <!-- [//] -->
+        </div>
+        <!-- # // # -->
+      </main>
+    </div>
+  </body>
+</html>
