@@ -1,16 +1,186 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../resources/scss/common.css" rel="stylesheet" />
-  <title>index</title>
-</head>
-<body>
-  <div class="wrap">
-    <h1>project</h1>
-    <p>hello world</p>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+    <title>화면목록</title>
+    <script type="text/javascript" src="../resources/js/lib/jquery/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="../resources/js/lib/jquery-ui/jquery-ui.min.js"></script>
+
+  <body>
+    <div id="wrapper" class="docs">
+      <header class="header">
+        <div>
+          <h1>PUBLISHING</h1>
+          <ul class="gnb">
+            <li><a href="./index.html" aria-current="location">LIST</a></li>
+            <li><a href="./guide.html">GUIDE</a></li>
+            <li><a href="./rule.html">RULE</a></li>
+          </ul>
+        </div>
+      </header>
+      <main id="container">
+        <!-- # CONTENT # -->
+        <div class="content">
+          <div class="tab">
+            <ul>
+              <li><a href="#none" target="_blank">1</a></li>
+              <li><a href="#none" target="_blank">2</a></li>
+              <li><a href="#none" target="_blank">3</a></li>
+              <li><a href="#none" target="_blank" aria-current="page">4</a></li>
+            </ul>
+          </div>
+          <div class="btn-group btn-group-fixed"></div>
+          <section class="section" id="uiList1">
+            <div class="tbl-guide">
+              <table data-sort="true" data-html-process="data">
+                <caption>작업목록</caption>
+                <colgroup>
+                  <col width="60" />
+                  <col width="100" />
+                  <col width="100" />
+                  <col width="180" />
+                  <col width="100" />
+                  <col width="180" />
+                  <col span="5" width="90" />
+                  <col width="200" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th scope="col"><span>번호</span></th>
+                    <th scope="col" colspan="4"><span>페이지</span></th>
+                    <th scope="col" class="file"><span>파일</span></th>
+                    <th scope="col">타입</th>
+                    <th scope="col">작업자</th>
+                    <th scope="col">시작일</th>
+                    <th scope="col">종료일</th>
+                    <th scope="col">수정일</th>
+                    <th scope="col">비고</th>
+                  </tr>
+                </thead>
+                <tbody id="list"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+        <!-- # // # -->
+      </main>
+    </div>
+    <script type="text/javascript" src="./list.js"></script>
+    <script>
+      // 진행중, 완료 상태 출력
+      (function () {
+        //목록 만들기
+        var listData = list;
+        var listTemplate = [].map.call(listData, function (item, index) {
+          var fileName = item.name || '';
+          return (
+            '\
+            <tr class="' +
+            item.process +
+            '">\
+              <td>' +
+            (index + 1) +
+            '</td>\
+              <td>' +
+            item.depth1 +
+            '</td>\
+              <td>' +
+            item.depth2 +
+            '</td>\
+              <td>' +
+            item.depth3 +
+            '</td>\
+              <td>' +
+            item.depth4 +
+            '</td>\
+              <td class="file">\
+                <a href="' +
+            item.path +
+            '" target="_blank" title="새창">\
+                  ' +
+            fileName +
+            '\
+                </a>\
+              </td>\
+              <td class="publisher">' +
+            item.type +
+            '</td>\
+              <td class="type" style="text-align: center;">' +
+            item.worker +
+            '</td>\
+              <td class="start" style="text-align: center;">' +
+            item.stdate +
+            '</td>\
+              <td class="end" style="text-align: center;">' +
+            item.endate +
+            '</td>\
+              <td class="modify" style="text-align: center;">' +
+            item.modify +
+            '</td>\
+              <td>' +
+            item.etc +
+            '</td>\
+            </tr>\
+            '
+          );
+        });
+
+        $('#list').html(listTemplate);
+
+        if ($('.btn-group').length > 0) {
+          $('.btn-group').before($('<div style="text-align: center;" id="pageState"><div class="info item-word1"><ul><li>...</li></ul></div></div>'));
+        }
+
+        function currentPageStateCalc(tar) {
+          var sections = tar.querySelectorAll('section.section');
+          var total = 0;
+          var ing = 0;
+          var ready = 0;
+          var comp = 0;
+          [].forEach.call(sections, function (section) {
+            var tr = section.querySelectorAll('[data-html-process="data"] .end');
+            console.log(tr);
+            [].forEach.call(tr, function (el) {
+              total++;
+              //빈값중에 ing 붙은게 진행
+              //빈값 아닌게 완료
+              if (el.textContent === '' && el.parentNode.classList.contains('ing')) {
+                ing++;
+              }
+              if (el.textContent !== '') {
+                comp++;
+              }
+            });
+          });
+          ready = total - (ing + comp);
+          return {
+            total: total,
+            ing: ing,
+            ready: ready,
+            comp: comp,
+          };
+        }
+        var cinfo = currentPageStateCalc(document);
+        var template =
+          '\
+        <div class="item-word1">\
+        <ul aria-label="진행률">\
+          <li><span>전체</span><span>{{TOTAL}}</span></li>\
+          <li><span>대기</span><span>{{READY}}</span></li>\
+          <li><span>진행</span><span>{{ING}}</span></li>\
+          <li><span>완료</span><strong>{{COMP}} ({{COMP2}}%)</strong></li>\
+        </ul>\
+        </div>';
+        template = template.replace('{{TOTAL}}', cinfo.total);
+        template = template.replace('{{ING}}', cinfo.ing);
+        template = template.replace('{{READY}}', cinfo.ready);
+        template = template.replace('{{COMP}}', cinfo.comp);
+        template = template.replace('{{COMP2}}', ((cinfo.comp / cinfo.total) * 100).toFixed(2));
+        console.warn('전체 ' + cinfo.total + ' | 대기 ' + cinfo.ready + ' | 진행 ' + cinfo.ing + ' | 완료 ' + cinfo.comp + ' | ' + ((cinfo.comp / cinfo.total) * 100).toFixed(2) + '%');
+        $('#pageState').html(template);
+      })();
+    </script>
+  </body>
 </html>
